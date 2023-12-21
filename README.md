@@ -6,7 +6,7 @@ This project provides the code and results for 'SPGroup3D: Superpoint Grouping N
 
 Anchors: [Yun Zhu](https://github.com/zyrant), [Le Hui](https://fpthink.github.io/), [Yaqi Shen](https://github.com/supersyq), [Jin Xie*](https://csjinxie.github.io/)
 
-PaperLink: https://arxiv.org/abs/2302.02858
+PaperLink: 
 
 
 ### Introduction
