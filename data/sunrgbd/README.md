@@ -21,6 +21,8 @@ or
 
 In our experiment, we use VCCS.
 
+Then
+
 ```
 python tools/create_data.py sunrgbd --root-path ./data/sunrgbd  --out-dir ./data/sunrgbd --extra-tag sunrgbd
 ```
