@@ -10,7 +10,7 @@ PaperLink:
 
 
 ### Introduction
-> Current 3D object detection methods for indoor scenes mainly follow the voting-then-grouping strategy to generate proposals. However, most methods utilize instance-agnostic groupings, such as ball query, leading to inconsistent semantic information and inaccurate regression of the proposals. To this end, we propose a novel superpoint grouping network for indoor anchor-free one-stage 3D object detection. Specifically, we first adopt an unsupervised manner to partition raw point clouds into local units with superpoint IDs, a kind of area with semantic consistency and spatial similarity. Then, we design a geometry-aware voting that aims at adapting to the centerness in anchor-free detection by constraining the spatial relationship between superpoints and object centers. Next, we present a superpoint-based grouping to explore the consistent representation within proposals. It includes a superpoint attention layer to learn feature interaction between neighboring superpoints and a superpoint-voxel fusion layer to propagate the superpoint-level information to the voxel level. With superpoint grouping, our network can group features via the constraints of semantic and spatial similarity and further relieve the inconsistency of object representations within proposals. Finally, during the matching process of training, we employ effective multiple matching to capitalize on the dynamic receptive fields of proposals based on superpoints. Experimental results demonstrate our method achieves state-of-the-art performance compared with recent 3D object detection methods on three datasets, in terms of mAP@0.25 on ScanNet V2 (+1.1), SUN RGB-D (+1.2), and S3DIS (+2.5) datasets.
+> Current 3D object detection methods for indoor scenes mainly follow the voting-and-grouping strategy to generate proposals. However, most methods utilize instance-agnostic groupings, such as ball query, leading to inconsistent semantic information and inaccurate regression of the proposals. To this end, we propose a novel superpoint grouping network for indoor anchor-free one-stage 3D object detection. Specifically, we first adopt an unsupervised manner to partition raw point clouds into superpoints, areas with semantic consistency and spatial similarity. Then, we design a geometry-aware voting module that adapts to the centerness in anchor-free detection by constraining the spatial relationship between superpoints and object centers. Next, we present a superpoint-based grouping module to explore the consistent representation within proposals. This module includes a superpoint attention layer to learn feature interaction between neighboring superpoints, and a superpoint-voxel fusion layer to propagate the superpoint-level information to the voxel level. Finally, we employ effective multiple matching to capitalize on the dynamic receptive fields of proposals based on superpoints during the training.  Experimental results demonstrate our method achieves state-of-the-art performance on ScanNet V2, SUN RGB-D, and S3DIS datasets in the indoor one-stage 3D object detection. 
 
 ### Preparation
 
@@ -19,7 +19,7 @@ PaperLink:
 - Alternatively, you can install all required packages manually. This implementation is based on [mmdetection3d](https://github.com/open-mmlab/mmdetection3d) framework. Please refer to the installation guide [getting_started.md](docs/en/getting_started.md), including MinkowskiEngine installation.
 
 ```
-# if you can not install MinkowskiEngine with pip sucessfully,
+# if you can not install MinkowskiEngine with pip successfully,
 git clone https://github.com/NVIDIA/MinkowskiEngine.git
 cd MinkowskiEngine
 python setup.py install --blas=openblas --force_cuda
@@ -37,7 +37,7 @@ pip install torch-scatter -f https://data.pyg.org/whl/torch-2.0.9+${CUDA}.html
 
 - We mainly follow the mmdetection3d data preparation protocol described in [scannet](data/scannet/README.md), [sunrgbd](data/sunrgbd/README.md), and [s3dis](data/s3dis/README.md), including superpoint generation.
 
-- Since superpoint gerneration need much dependencies. We recommend you to use the processed superpoint in [GoogleDrive](https://drive.google.com/drive/folders/1uj4Y5HgWaf3cpYrQ0-4pBAB0sMc2mNnQ?usp=sharing) / [BaiduDrive](https://pan.baidu.com/s/1AvOWuXQACEoK2NYc9fprMA?pwd=x52a) and you just need to re-generate `{}.pkl` of different datasets. 
+- Since superpoint generation needs many dependencies. We recommend you to use the processed superpoint in [GoogleDrive](https://drive.google.com/drive/folders/1uj4Y5HgWaf3cpYrQ0-4pBAB0sMc2mNnQ?usp=sharing) / [BaiduDrive](https://pan.baidu.com/s/1AvOWuXQACEoK2NYc9fprMA?pwd=x52a) and you just need to re-generate `{}.pkl` of different datasets. 
 
 - Please DON'T do any sampling operation in Data preparation, otherwise it will result in a mismatch with the superpoint we provide.
 
