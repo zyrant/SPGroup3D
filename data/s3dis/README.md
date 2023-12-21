@@ -4,7 +4,7 @@ Almost all steps are the same as the [mmdet3d](hhttps://github.com/open-mmlab/mm
 
 # Superpoint Generatation
 
-we use SSP/SPG to generate superpoints, plase see https://github.com/loicland/superpoint_graph.
+we use SSP/SPG to generate superpoints, please see https://github.com/loicland/superpoint_graph or https://github.com/fpthink/3D-WSIS/blob/main/data/S3DIS/S3DIS.md.
 
 Then
 
