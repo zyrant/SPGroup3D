@@ -1,6 +1,3 @@
-'''
-2022.12.28 --zy 阳了在家写代码 
-'''
 
 import mmcv
 import numpy as np
