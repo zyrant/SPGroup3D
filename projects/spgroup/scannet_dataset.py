@@ -1,7 +1,7 @@
-'''
-2022.12.28 --zyrant
+# Copyright (c) OpenMMLab. All rights reserved.
+# Adapted from https://github.com/open-mmlab/mmdetection3d/blob/main/mmdet3d/datasets/scannet_dataset.py
+# by --zyrant
 
-'''
 import numpy as np
 import tempfile
 import warnings
