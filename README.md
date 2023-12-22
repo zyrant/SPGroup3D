@@ -19,7 +19,7 @@ PaperLink: https://arxiv.org/abs/2312.13641
 - Alternatively, you can install all required packages manually. This implementation is based on [mmdetection3d](https://github.com/open-mmlab/mmdetection3d) framework. Please refer to the installation guide [getting_started.md](docs/en/getting_started.md), including MinkowskiEngine installation.
 
 ```
-# if you can not install MinkowskiEngine with pip successfully,
+# If you can not install MinkowskiEngine with pip successfully,
 git clone https://github.com/NVIDIA/MinkowskiEngine.git
 cd MinkowskiEngine
 python setup.py install --blas=openblas --force_cuda
@@ -33,7 +33,7 @@ pip install torch-scatter -f https://data.pyg.org/whl/torch-2.0.9+${CUDA}.html
 - All the `SPGroup3D`-related code locates in the folder [projects](projects).
 
 
-### Data preparation
+### Data Preparation
 
 - We mainly follow the mmdetection3d data preparation protocol described in [scannet](data/scannet/README.md), [sunrgbd](data/sunrgbd/README.md), and [s3dis](data/s3dis/README.md), including superpoint generation.
 
@@ -46,7 +46,7 @@ pip install torch-scatter -f https://data.pyg.org/whl/torch-2.0.9+${CUDA}.html
 To start training, run [train](tools/train.py) with SPGroup3D [configs](projects/configs):
 
 ```shell
-# remember to modify the data_root
+# Remember to modify the data_root
 # scannet v2
 CUDA_VISIBLE_DEVICE={} bash tools/dist_train.sh projects/configs/SPGroup_scannet.py 4 --work-dir work_dirs/{YOUR PATH}
 # sunrgbd
@@ -90,14 +90,19 @@ All models are trained with 4 3090 GPUs.
 | SUN RGB-D | 65.4 (64.8) | 47.1 (46.4)| [GoogleDrive](https://drive.google.com/drive/folders/1wxQ7ZVp1WqsXUfX8_lNsYLUAFfxzPRgw?usp=sharing) / [BaiduDrive](https://pan.baidu.com/s/1rCKgQyuo5e9kHNZERwe1Lg?pwd=8mdv)|[config](projects/configs/SPGroup_sunrgbd.py) |
 | S3DIS | 69.2 (67.7) | 47.2 (43.6) | [GoogleDrive](https://drive.google.com/drive/folders/1QK9sJj3PzEJvEtNBWW-2GsXuySgwYRPy?usp=sharing) / [BaiduDrive](https://pan.baidu.com/s/15FXU2H2UB3cAnjz-xt6XKg?pwd=7jn4) | [config](projects/configs/SPGroup_s3dis.py)|
 
-Due to the size of the these datasets and the randomness that inevitably exists in the model,  the results on these datasets fluctuate significantly. It's normal for results to fluctuate within a range.
+Due to the size of these datasets and the randomness that inevitably exists in the model,  the results on these datasets fluctuate significantly. It's normal for results to fluctuate within a range.
 
 ### Citation
 
 If you find this work useful for your research, please cite our paper:
 
 ```
-
+@inproceedings{zhu2024spgroup,
+  title={SPGroup3D: Superpoint Grouping Network for Indoor 3D Object Detection},
+  author={Yun Zhu, Le Hui, Yaqi Shen, Jin Xie},
+  booktitle={AAAI},
+  year={2024}
+}
 ```
 
 ### Acknowledgments
@@ -111,4 +116,4 @@ This project is based on the following codebases.
 - [SPG/SSP](https://github.com/loicland/superpoint_graph)
 - [pclpy](https://github.com/davidcaron/pclpy)
  
-If you find this project helpful, Please also cite codebases above. Thanks.
+If you find this project helpful, Please also cite the codebases above. Thanks.
