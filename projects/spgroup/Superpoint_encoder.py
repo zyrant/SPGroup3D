@@ -187,11 +187,11 @@ class SSG(nn.Module):
 
         features_ms, coordinates_ms, coordinates_offsets, vote_offsets, vote_voxel_points = [], [], [], [], []
         for permutation in x.decomposition_permutations:
-            batch_features = torch.cat([x.features[permutation], vote_feats[permutation]], dim=0) # 原始场景+vote之后的场景
+            batch_features = torch.cat([x.features[permutation], vote_feats[permutation]], dim=0) # merge
             batch_coordinates = torch.cat([orgin_coordinates[permutation], vote_coordinates[permutation]], dim=0)
             batch_coordinates_offsets = x.coordinates[:, 0][permutation].repeat(2)
             vote_offsets.append(vote_x.features[:,:3][permutation])
-            vote_voxel_points.append(vote_x.coordinates[permutation][:, 1:] * self.voxel_size) # vote之前的点
+            vote_voxel_points.append(vote_x.coordinates[permutation][:, 1:] * self.voxel_size) 
             features_ms.append(batch_features) 
             coordinates_ms.append(batch_coordinates) 
             coordinates_offsets.append(batch_coordinates_offsets)
@@ -202,7 +202,7 @@ class SSG(nn.Module):
         count = 0
         for batch_ids in range(len(points)):
             point_idx = knn(1, points[batch_ids][None, :, :3].contiguous(), 
-                                    vote_voxel_points[batch_ids][None, ::].contiguous())[0].squeeze(0) # 要用vote之前的voxel center点进行配准
+                                    vote_voxel_points[batch_ids][None, ::].contiguous())[0].squeeze(0) # remember to use coordinates before vote
             
             batch_select_superpoints = superpoints[batch_ids][point_idx.long()]
             sp_ids, batch_select_superpoints = torch.unique(batch_select_superpoints, return_inverse=True)
