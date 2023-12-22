@@ -467,8 +467,6 @@ class BiResNet(nn.Module):
 
         self.spp = DAPPM(planes * 4, spp_planes, planes * 4, dimension=dimension)
 
-        # MinkowskiConvolutionTranspose会返回上原来下采样那边一样的坐标和特征数
-        # MinkowskiGenerativeConvolutionTranspose会插值, 产生更多的坐标和特征, 怎么插值的不知道
         if self.return_4x:
             self.out = nn.Sequential(
                                     ME.MinkowskiConvolution(planes * 4, planes * 4, kernel_size=3, bias=False, dimension=dimension),
