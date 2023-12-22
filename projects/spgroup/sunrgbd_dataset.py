@@ -1,4 +1,7 @@
 # Copyright (c) OpenMMLab. All rights reserved.
+# Adapted from https://github.com/open-mmlab/mmdetection3d/blob/main/mmdet3d/datasets/sunrgbd_dataset.py
+# by --zyrant
+
 from collections import OrderedDict
 from os import path as osp
 
