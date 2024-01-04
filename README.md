@@ -97,12 +97,6 @@ Due to the size of these datasets and the randomness that inevitably exists in t
 If you find this work useful for your research, please cite our paper:
 
 ```
-@inproceedings{zhu2024spgroup,
-  title={SPGroup3D: Superpoint Grouping Network for Indoor 3D Object Detection},
-  author={Yun Zhu, Le Hui, Yaqi Shen, Jin Xie},
-  booktitle={AAAI},
-  year={2024}
-}
 @article{zhu2023spgroup3d,
   title={SPGroup3D: Superpoint Grouping Network for Indoor 3D Object Detection},
   author={Zhu, Yun and Hui, Le and Shen, Yaqi and Xie, Jin},
