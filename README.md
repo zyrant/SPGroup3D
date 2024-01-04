@@ -27,7 +27,7 @@ python setup.py install --blas=openblas --force_cuda
 - Install [torch_scatter](https://github.com/rusty1s/pytorch_scatter).
 
 ```
-pip install torch-scatter -f https://data.pyg.org/whl/torch-2.0.9+${CUDA}.html
+pip install torch-scatter=2.0.9 -f https://data.pyg.org/whl/torch-1.10.1+${CUDA}.html
 ```
 
 - All the `SPGroup3D`-related code locates in the folder [projects](projects).
@@ -102,6 +102,12 @@ If you find this work useful for your research, please cite our paper:
   author={Yun Zhu, Le Hui, Yaqi Shen, Jin Xie},
   booktitle={AAAI},
   year={2024}
+}
+@article{zhu2023spgroup3d,
+  title={SPGroup3D: Superpoint Grouping Network for Indoor 3D Object Detection},
+  author={Zhu, Yun and Hui, Le and Shen, Yaqi and Xie, Jin},
+  journal={arXiv preprint arXiv:2312.13641},
+  year={2023}
 }
 ```
 
