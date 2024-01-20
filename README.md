@@ -1,3 +1,7 @@
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/spgroup3d-superpoint-grouping-network-for/3d-object-detection-on-scannetv2)](https://paperswithcode.com/sota/3d-object-detection-on-scannetv2?p=spgroup3d-superpoint-grouping-network-for)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/spgroup3d-superpoint-grouping-network-for/3d-object-detection-on-sun-rgbd-val)](https://paperswithcode.com/sota/3d-object-detection-on-sun-rgbd-val?p=spgroup3d-superpoint-grouping-network-for)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/spgroup3d-superpoint-grouping-network-for/3d-object-detection-on-s3dis)](https://paperswithcode.com/sota/3d-object-detection-on-s3dis?p=spgroup3d-superpoint-grouping-network-for)
+
 ## SPGroup3D
 
 <p align="center"><img src="./images/SPGroup3D.png" alt="drawing" width="90%"/></p>
