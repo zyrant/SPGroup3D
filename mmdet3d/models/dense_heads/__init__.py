@@ -17,13 +17,11 @@ from .smoke_mono3d_head import SMOKEMono3DHead
 from .ssd_3d_head import SSD3DHead
 from .tr3d_head import TR3DHead
 from .vote_head import VoteHead
-from .seggroup3d_neck_with_head import SegGroup3DNeckWithHead
-from .seggroup3d_head_ddr import SegGroup3DHeadDDR
 
 __all__ = [
     'Anchor3DHead', 'FreeAnchor3DHead', 'PartA2RPNHead', 'VoteHead',
     'SSD3DHead', 'BaseConvBboxHead', 'CenterHead', 'ShapeAwareHead',
     'BaseMono3DDenseHead', 'AnchorFreeMono3DHead', 'FCOSMono3DHead',
     'GroupFree3DHead', 'PointRPNHead', 'SMOKEMono3DHead', 'PGDHead',
-    'MonoFlexHead', 'FCAF3DHead', 'TR3DHead','SegGroup3DNeckWithHead'
+    'MonoFlexHead', 'FCAF3DHead', 'TR3DHead',
 ]
