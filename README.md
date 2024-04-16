@@ -42,7 +42,7 @@ pip install torch-scatter=2.0.9 -f https://data.pyg.org/whl/torch-1.10.1+${CUDA}
 - We mainly follow the mmdetection3d data preparation protocol described in [scannet](data/scannet/README.md), [sunrgbd](data/sunrgbd/README.md), and [s3dis](data/s3dis/README.md), including superpoint generation. Other modifies are in
   [scannet_data_utils](https://github.com/zyrant/SPGroup3D/blob/main/tools/data_converter/scannet_data_utils.py), [s3dis_data_utils](https://github.com/zyrant/SPGroup3D/blob/main/tools/data_converter/s3dis_data_utils.py), and [sunrgbd_data_utils](https://github.com/zyrant/SPGroup3D/blob/main/tools/data_converter/sunrgbd_data_utils.py), which are related to `pkl` flies generation.
   
-- Since superpoint generation needs many dependencies. We recommend you use the official data processing and use the processed superpoint and `pkl` flies we provided in [GoogleDrive](https://drive.google.com/drive/folders/1uj4Y5HgWaf3cpYrQ0-4pBAB0sMc2mNnQ?usp=sharing) / [BaiduDrive](https://pan.baidu.com/s/1AvOWuXQACEoK2NYc9fprMA?pwd=x52a) By doing this, you just need to put them into your files and replace the origin `pkl` files. 
+- Since superpoint generation needs many dependencies. We recommend you use the official data processing and use the processed superpoint and `pkl` flies we provided in [GoogleDrive](https://drive.google.com/drive/folders/1uj4Y5HgWaf3cpYrQ0-4pBAB0sMc2mNnQ?usp=sharing) / [BaiduDrive](https://pan.baidu.com/s/1AvOWuXQACEoK2NYc9fprMA?pwd=x52a). By doing this, you just need to put them into your files and replace the origin `pkl` files. 
 
 - Please DON'T do any sampling operation in Data preparation, otherwise it will result in a mismatch with the superpoint we provide.
 
