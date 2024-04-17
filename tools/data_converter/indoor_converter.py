@@ -6,7 +6,6 @@ import numpy as np
 
 from tools.data_converter.s3dis_data_utils import S3DISData, S3DISSegData
 from tools.data_converter.scannet_data_utils import ScanNetData, ScanNetSegData
-from tools.data_converter.scannet_md40_data_utils import ScanNetData_md40, ScanNetSegData_md40
 from tools.data_converter.sunrgbd_data_utils import SUNRGBDData
 
 
@@ -28,13 +27,13 @@ def create_indoor_info_file(data_path,
         workers (int, optional): Number of threads to be used. Default: 4.
     """
     assert os.path.exists(data_path)
-    assert pkl_prefix in ['sunrgbd', 'scannet', 's3dis', 'scannet_md40'], \
+    assert pkl_prefix in ['sunrgbd', 'scannet', 's3dis'], \
         f'unsupported indoor dataset {pkl_prefix}'
     save_path = data_path if save_path is None else save_path
     assert os.path.exists(save_path)
 
     # generate infos for both detection and segmentation task
-    if pkl_prefix in ['sunrgbd', 'scannet', 'scannet_md40']:
+    if pkl_prefix in ['sunrgbd', 'scannet']:
         train_filename = os.path.join(save_path,
                                       f'{pkl_prefix}_infos_train.pkl')
         val_filename = os.path.join(save_path, f'{pkl_prefix}_infos_val.pkl')
@@ -44,18 +43,11 @@ def create_indoor_info_file(data_path,
                 root_path=data_path, split='train', use_v1=use_v1)
             val_dataset = SUNRGBDData(
                 root_path=data_path, split='val', use_v1=use_v1)
-        elif pkl_prefix == 'scannet':
+        else:
             # ScanNet has a train-val-test split
             train_dataset = ScanNetData(root_path=data_path, split='train')
             val_dataset = ScanNetData(root_path=data_path, split='val')
             test_dataset = ScanNetData(root_path=data_path, split='test')
-            test_filename = os.path.join(save_path,
-                                         f'{pkl_prefix}_infos_test.pkl')
-        else:
-            # ScanNet has a train-val-test split
-            train_dataset = ScanNetData_md40(root_path=data_path, split='train')
-            val_dataset = ScanNetData_md40(root_path=data_path, split='val')
-            test_dataset = ScanNetData_md40(root_path=data_path, split='test')
             test_filename = os.path.join(save_path,
                                          f'{pkl_prefix}_infos_test.pkl')
 
@@ -68,11 +60,6 @@ def create_indoor_info_file(data_path,
         mmcv.dump(infos_val, val_filename, 'pkl')
         print(f'{pkl_prefix} info val file is saved to {val_filename}')
 
-    if pkl_prefix == 'scannet_md40':
-        infos_test = test_dataset.get_infos(
-            num_workers=workers, has_label=False)
-        mmcv.dump(infos_test, test_filename, 'pkl')
-        print(f'{pkl_prefix} info test file is saved to {test_filename}')
     if pkl_prefix == 'scannet':
         infos_test = test_dataset.get_infos(
             num_workers=workers, has_label=False)
